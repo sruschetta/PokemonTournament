@@ -1,0 +1,36 @@
+<div class="pokemon_card card clearfix">
+    <div class="pokemon_card_head">
+        {% if pokemon.pokemonId %}
+            <input type="hidden" name="pokemon_id[]" value="{{ pokemon.pokemonId }}">
+        {% endif %}
+        <h3 class="name">{{ pokemon.name | default('Unnamed pokemon') }}</h3>
+        <div>
+            <img class="pokemon_img" src="{{ pokemon.sprite | default('/images/pokeball.png') }}">
+        </div>
+    </div>
+    {% if pokemon.baseExperience %}
+    <div>
+        <b>Base experience:</b> {{ pokemon.baseExperience | default(0) }}
+    </div>
+    {% endif %}
+    {% if pokemon.types %}
+    <div class="card_list">
+        <b>Types:</b>
+        <ul>
+            {% for type in pokemon.types %}
+                <li>{{ type.name|e }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {%  endif %}
+    {% if pokemon.abilities %}
+    <div class="card_list">
+        <b>Abilities:</b>
+        <ul>
+            {% for item in pokemon.abilities %}
+                <li>{{ item.ability.name|e }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {%  endif %}
+</div>

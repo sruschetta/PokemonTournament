@@ -1,0 +1,12 @@
+{% include "common/pt_header.html.twig" %}
+    <form id="edit_team" method="post">
+        {% include "cards/pt_team_header_card.html.twig" with  { 'team_label': team_label,
+                                                                 'submit_button_label': submit_button_label} %}
+    </form>
+    <div class="pokemon_list">
+        {% for pokemon in pokemons %}
+            {% include "cards/pt_pokemon_card.html.twig" with  { 'pokemon': pokemon } %}
+        {% endfor %}
+    </div>
+    <script src="/js/team_edit.js"></script>
+{% include "common/pt_footer.html.twig" %}

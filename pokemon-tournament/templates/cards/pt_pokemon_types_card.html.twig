@@ -1,0 +1,16 @@
+<form class="card pokemon_types_card" id="pokemon_type_filter">
+    <div class="clearfix">
+    {% for type in types %}
+        <div class="pokemon_types_card_input">
+            <label class="name">
+                <input name="{{ type.name }}" type="checkbox">
+                {{ type.name }}
+            </label>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="card_buttons">
+        <input class="pt_button red" name="filter_type" value="Filter" type="submit">
+        <span class="loader red"></span>
+    </div>
+</form>

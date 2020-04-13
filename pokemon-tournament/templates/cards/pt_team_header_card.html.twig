@@ -1,0 +1,16 @@
+<div class="card team_head_card">
+    <div class="team_head_card_field">
+        <label for="team_name"><b>{{ team_label | default('Team Name') }}</b></label>
+        <input type="text" name="team_name" value="{{ team_name | default() }}">
+        <span class="field_error"></span>
+    </div>
+    <div class="team_head_card_buttons team_head_card_field">
+        <input type="submit" name="team_submit" value="{{ submit_button_label | default('Save') }}" class="pt_button">
+        <span class="loader"></span>
+        {% if new_team is defined and new_team %}
+            <div class="field_error"></div>
+        {% else %}
+            <div class="message"></div>
+        {% endif %}
+    </div>
+</div>

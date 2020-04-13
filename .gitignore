@@ -1,0 +1,12 @@
+# Default ignored files
+
+/mysql-data/*
+
+
+# IDEs
+/.idea
+*.iml
+*~
+
+# System files
+.DS_Store

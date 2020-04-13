@@ -1,0 +1,16 @@
+{% include "common/pt_header.html.twig" %}
+    <form id="create_team" method="post" redirect="/team/list">
+        {% include "cards/pt_team_header_card.html.twig" with  {'new_team': new_team,
+                                                                'team_label': team_label,
+                                                                'submit_button_label': submit_button_label} %}
+        <div class="pokemon_list">
+            <div class="placeholder">
+                Your team is empty!<br/>
+                Click <b>"Gotta catch'em all!"</b> to add a new Pokemon to your team!
+            </div>
+        </div>
+        <button class="pt_button red" id="add_pokemon">Gotta Catch'em all</button>
+        <span class="loader"></span>
+    </form>
+    <script src="/js/team_create.js"></script>
+{% include "common/pt_footer.html.twig" %}

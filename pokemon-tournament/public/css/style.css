@@ -1,0 +1,206 @@
+html, body{
+    margin: 0;
+    background: -webkit-linear-gradient(#48847c, #76cc9d);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    padding: 32px 0;
+    text-align: center;
+    color: white;
+}
+
+.main_content {
+    width: 85%;
+    max-width: 768px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 32px;
+}
+
+.pt_button {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #98d383;
+    border-radius: 5px;
+    border-width: 0px;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.pt_button:hover {
+    background-color: white;
+    color: #98d383;
+}
+
+.pt_button.red {
+    background-color: #da67a8;
+}
+
+.pt_button.red:hover {
+    background-color: white;
+    color: #da67a8;
+}
+
+.team_list {
+    color: white;
+    padding-bottom: 32px;
+}
+
+.card {
+    text-align: left;
+    color: #33888d;
+    background-color: rgba(255.0, 255.0, 255.0, 0.8);
+    transition: all 0.2s;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.name {
+    text-transform: capitalize;
+}
+
+.team_head_card {
+    text-align: center;
+}
+
+.team_head_card .team_head_card_field {
+    display: block;
+}
+
+.team_head_card .team_head_card_field input[type="text"] {
+    display: block;
+    margin: 8px auto;
+    padding: 0px 16px;
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.team_head_card .team_head_card_field .field_error{
+    color: red;
+    opacity: 0;
+    transition: opacity 0.2s;
+    margin-top: 8px;
+}
+
+.team_head_card .team_head_card_field .message {
+    color: #33888d;
+    margin-top: 8px;
+}
+
+.team_head_card .team_head_card_field .field_error.visible{
+    opacity: 1.0;
+}
+
+.team_head_card .team_head_card_buttons {
+    padding: 8px 0;
+}
+
+.pokemon_list .placeholder {
+    color: white;
+    padding: 16px 0;
+}
+
+.team_card:hover {
+    background-color: white;
+}
+
+.team_card h3 {
+    margin-top: 0;
+}
+
+.team_card a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.team_card a:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.team_card_pokemon {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.card_list {
+    padding: 16px 0;
+    display: inline-block;
+    width: 50%;
+    float: left;
+    text-transform: capitalize;
+}
+
+.card_buttons {
+    padding-top: 8px ;
+    text-align: center;
+}
+
+.pokemon_img {
+    width: 96px;
+    height: 96px;
+    position: relative;
+    background-color: white;
+    border-radius: 50%;
+    border-color: #33888d;
+    border-width: 2px;
+    border-style: solid;
+    margin: 16px;
+}
+
+.pokemon_card .pokemon_card_head {
+    text-align: center;
+}
+
+.pokemon_types_card .pokemon_types_card_input{
+    float: left;
+    width: 25%;
+}
+
+@media screen and (max-width: 600px){
+    .card_list{
+        width: 100%;
+    }
+
+    .pokemon_types_card .pokemon_types_card_input{
+        width: 50%;
+    }
+}
+
+.loader {
+    display: none;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #98d383;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 2s linear infinite;
+}
+
+.loader.visible {
+    display: inline-block;
+}
+
+.loader.red {
+    border-top: 4px solid #da67a8;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.clearfix::after{
+    display: block;
+    content: "";
+    clear: both;
+}

@@ -1,0 +1,29 @@
+<div class="team_card card clearfix" team-id={{ team.team_id }}>
+    <a href="{{ team.team_id  }}/edit">
+    <h3 >{{ team.team_name|default('Unnamed team') }}</h3>
+    <div class="team_card_pokemon">
+        {% for sprite in team.sprites %}
+            <img class="pokemon_img" src="{{ sprite | default('/images/pokeball.png') }}">
+        {% endfor %}
+    </div>
+    <div>
+        <b>Total XP: </b>{{ team.total_experience|default(0) }}
+    </div>
+    <div class="card_list">
+        <b>Types:</b>
+        <ul>
+            {% for type in team.types %}
+                <li>{{ type }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card_list">
+        <b>Abilities:</b>
+        <ul>
+            {% for ability in team.abilities %}
+                <li>{{ ability }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    </a>
+</div>

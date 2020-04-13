@@ -1,0 +1,21 @@
+{% include "common/pt_header.html.twig" %}
+    {% if team_list is not empty %}
+        {% include "cards/pt_pokemon_types_card.html.twig" with {'types': types} %}
+    {% endif %}
+    <div class="team_list">
+        {% if team_list is empty %}
+            <div>
+                You have not created a team yet!<br/>
+                Click <b>"Add New Team"</b> to create your first team!
+            </div>
+        {% else %}
+            <h2>Your teams</h2>
+            {% for team in team_list %}
+                {% include 'cards/pt_team_card.html.twig' with {'team': team} %}
+            {% endfor %}
+        {% endif %}
+        </div>
+        <a class="pt_button" href="/team/create">Add New Team</a>
+    <script src="/js/team_list.js"></script>
+{% include "common/pt_footer.html.twig" %}
+
