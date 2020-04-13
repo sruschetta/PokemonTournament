@@ -5,7 +5,14 @@ Container for the S'nce Pokemon Tournament App.
 ## How to run
 
 Simply start the container with <i>docker-compose up</i> or <i>docker-compose up -d</i> for background execution.
+
+Then you need to create the necessary tables with the shell in the php container with:<br/><br/>
+<i>docker-compose exec php-fpm bash</i><br/>
+<i>php pokemon-tournament/bin/console doctrine:schema:update --force</i>
+
 The app is running on <b>localhost:8080</b>
+
+
 
 
 ## How it works
