@@ -53,7 +53,7 @@ class __TwigTemplate_838d7eec77e6cc07d6723c9ac9ed9dda735a8c700eed53409716c916a86
                 <input name=\"";
             // line 6
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["type"], "name", [], "any", false, false, false, 6), "html", null, true);
-            echo "\" type=\"checkbox\">
+            echo "\" type=\"checkbox\" checked=\"checked\">
                 ";
             // line 7
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["type"], "name", [], "any", false, false, false, 7), "html", null, true);
@@ -102,7 +102,7 @@ class __TwigTemplate_838d7eec77e6cc07d6723c9ac9ed9dda735a8c700eed53409716c916a86
     {% for type in types %}
         <div class=\"pokemon_types_card_input\">
             <label class=\"name\">
-                <input name=\"{{ type.name }}\" type=\"checkbox\">
+                <input name=\"{{ type.name }}\" type=\"checkbox\" checked=\"checked\">
                 {{ type.name }}
             </label>
         </div>

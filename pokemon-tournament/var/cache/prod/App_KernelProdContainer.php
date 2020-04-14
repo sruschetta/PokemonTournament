@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelProdContainer::class, false)) {
 
 return new \ContainerNxE19as\App_KernelProdContainer([
     'container.build_hash' => 'NxE19as',
-    'container.build_id' => 'ed0a48dc',
-    'container.build_time' => 1586794116,
+    'container.build_id' => 'eac8e958',
+    'container.build_time' => 1586846497,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerNxE19as');

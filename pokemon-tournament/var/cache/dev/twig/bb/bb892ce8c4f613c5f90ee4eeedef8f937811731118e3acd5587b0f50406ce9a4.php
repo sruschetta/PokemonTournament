@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @WebProfiler/Collector/pt_team_create.html.twig.twig */
+/* @WebProfiler/Collector/form.html.twig */
 class __TwigTemplate_89e736407c3b817c92479a939432b4d09bdf43cbf7ed9319ea356fe6b0582e71 extends Template
 {
     private $source;
@@ -42,15 +42,15 @@ class __TwigTemplate_89e736407c3b817c92479a939432b4d09bdf43cbf7ed9319ea356fe6b05
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/pt_team_create.html.twig.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/form.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/pt_team_create.html.twig.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Collector/form.html.twig"));
 
         // line 3
         $macros["__internal_64045a5e39c43d9101a5f49b8737af8c0d4704966efd427279831461779a48b0"] = $this->macros["__internal_64045a5e39c43d9101a5f49b8737af8c0d4704966efd427279831461779a48b0"] = $this;
         // line 1
-        $this->parent = $this->loadTemplate("@WebProfiler/Profiler/layout.html.twig", "@WebProfiler/Collector/pt_team_create.html.twig.twig", 1);
+        $this->parent = $this->loadTemplate("@WebProfiler/Profiler/layout.html.twig", "@WebProfiler/Collector/form.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -1335,7 +1335,7 @@ class __TwigTemplate_89e736407c3b817c92479a939432b4d09bdf43cbf7ed9319ea356fe6b05
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Collector/pt_team_create.html.twig.twig";
+        return "@WebProfiler/Collector/form.html.twig";
     }
 
     public function isTraitable()
@@ -2080,6 +2080,6 @@ class __TwigTemplate_89e736407c3b817c92479a939432b4d09bdf43cbf7ed9319ea356fe6b05
         {{ tree.form_tree_details(childName, childData, forms_by_hash) }}
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/pt_team_create.html.twig.twig", "/application/pokemon-tournament/vendor/symfony/web-profiler-bundle/Resources/views/Collector/pt_team_create.html.twig.twig");
+", "@WebProfiler/Collector/form.html.twig", "/application/pokemon-tournament/vendor/symfony/web-profiler-bundle/Resources/views/Collector/form.html.twig");
     }
 }

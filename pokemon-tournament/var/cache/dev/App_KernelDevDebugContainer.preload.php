@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/ContainerYH599SP/App_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerXktbXEE/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -33,6 +33,7 @@ $classes[] = 'App\Repository\PokemonRepository';
 $classes[] = 'App\Repository\TeamRepository';
 $classes[] = 'App\Repository\TypeRepository';
 $classes[] = 'App\Service\PTApiManager';
+$classes[] = 'App\Service\PTCacheManager';
 $classes[] = 'App\Service\PTDBManager';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';

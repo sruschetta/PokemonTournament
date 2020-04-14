@@ -12,7 +12,6 @@ use App\Entity\Type;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Validator\Constraints\DateTime;
 
-
 class PTDBManager {
 
     private $pokemonRepository;
@@ -21,14 +20,18 @@ class PTDBManager {
 
     private $entityManager;
 
+    private $cacheManager;
+
     public function __construct( PokemonRepository $pokemonRepository,
                                  TeamRepository $teamRepository,
                                  TypeRepository $typeRepository,
+                                 PTCacheManager $cacheManager,
                                  EntityManagerInterface $entityManager ) {
         $this->pokemonRepository = $pokemonRepository;
         $this->teamRepository = $teamRepository;
         $this->typeRepository = $typeRepository;
         $this->entityManager = $entityManager;
+        $this->cacheManager = $cacheManager;
     }
 
     /*
@@ -97,13 +100,21 @@ class PTDBManager {
         $team->setName($name);
         $team->setCreationDate( new \DateTime('now'));
 
+
         foreach( $pokemon_array as $pokemon_id ) {
             $pokemon = $this->getPokemonWithId($pokemon_id);
             $team->addPokemon($pokemon);
+
+            foreach ($pokemon->getTypes() as $type ){
+                $this->cacheManager->getCache()->invalidateTags([$type->getName()]);
+            }
+
         }
 
         $this->entityManager->persist($team);
         $this->entityManager->flush();
+
+        $this->cacheManager->getCache()->delete('team_list');
 
         return $team;
     }

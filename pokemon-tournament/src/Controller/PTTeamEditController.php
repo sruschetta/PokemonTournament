@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\PTApiManager;
+use App\Service\PTCacheManager;
 use App\Service\PTDBManager;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 
@@ -39,7 +38,7 @@ class PTTeamEditController extends AbstractController {
      * Validate and save the edit request for team $id.
      * @Route("/team/{id}/edit", name="team_edit_action", methods={"POST"})
      */
-    public function teamEditAction($id, Request $request, PTDBManager $dbManager) {
+    public function teamEditAction($id, Request $request, PTDBManager $dbManager, PTCacheManager $cacheManager) {
 
         $result = array();
         $errors = array();
@@ -48,6 +47,9 @@ class PTTeamEditController extends AbstractController {
 
         if( isset($team_name) && !empty($team_name) ){
             $dbManager->updateTeamName($id, $team_name);
+
+            $cacheManager->getCache()->invalidateTags('team_' . $id);
+            $cacheManager->getCache()->invalidateTags('team_list');
 
             $result['code'] = 0;
             $result['message'] = 'Team updated!';

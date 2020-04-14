@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @WebProfiler/Profiler/404.html.twig */
+/* @WebProfiler/Profiler/base.html.twig */
 class __TwigTemplate_555f68450499e0589c679b6da8b32b3f9028785315e6d16c9c59b1e057dcceae extends Template
 {
     private $source;
@@ -37,10 +37,10 @@ class __TwigTemplate_555f68450499e0589c679b6da8b32b3f9028785315e6d16c9c59b1e057d
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/404.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/404.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -152,7 +152,7 @@ class __TwigTemplate_555f68450499e0589c679b6da8b32b3f9028785315e6d16c9c59b1e057d
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Profiler/404.html.twig";
+        return "@WebProfiler/Profiler/base.html.twig";
     }
 
     public function isTraitable()
@@ -193,6 +193,6 @@ class __TwigTemplate_555f68450499e0589c679b6da8b32b3f9028785315e6d16c9c59b1e057d
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/404.html.twig", "/application/pokemon-tournament/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/404.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "/application/pokemon-tournament/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
     }
 }

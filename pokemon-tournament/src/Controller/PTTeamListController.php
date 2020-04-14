@@ -8,6 +8,7 @@
     use Symfony\Component\HttpFoundation\JsonResponse;
 
     use App\Service\PTDBManager;
+    use App\Service\PTCacheManager;
 
     class PTTeamListController extends AbstractController {
 
@@ -16,49 +17,71 @@
          * Renders the team list page.
          * @Route("/team/list", name="team_list", methods={"GET","HEAD"})
          */
-        public function teamList(PTDBManager $dbManager) {
+        public function teamList(PTDBManager $dbManager, PTCacheManager $cacheManager) {
 
-            $teams = $dbManager->getAllTeamsPreview();
+            $cache_item = $cacheManager->getCache()->getItem('team_list');
 
-            $types = $dbManager->getAllTypes();
+            if( !$cache_item->isHit() ) {
 
-            $params = array(
-                "team_list" => $teams,
-                "types" => $types
-            );
+                $teams = $dbManager->getAllTeamsPreview();
 
-            return $this->render('pt_team_list.html.twig', $params );
+                $types = $dbManager->getAllTypes();
+
+                $params = array(
+                    "team_list" => $teams,
+                    "types" => $types
+                );
+
+                $cache_item->set($params);
+                $cache_item->tag('team_list');
+                $cacheManager->getCache()->save($cache_item);
+            }
+
+            return $this->render('pt_team_list.html.twig', $cache_item->get());
         }
 
         /**
          * Validate and filters the teams by types sent in post params.
          * @Route("/team/list", name="team_list_filter", methods={"POST"})
          */
-        public function teamListFilter( Request $request, PTDBManager $dbManager ) {
+        public function teamListFilter( Request $request, PTDBManager $dbManager, PTCacheManager $cacheManager ) {
 
             if( $request->isXmlHttpRequest() ) {
 
                 $types = array();
-
+                $key = '';
                 foreach ($request->get('types') as $type) {
                     array_push($types, $type['name']);
+                    $key .= $type['name'];
                 }
 
-                $teams_render = array();
-                $teams = $dbManager->getAllTeamsWithTypes($types);
+                $cache_item = $cacheManager->getCache()->getItem($key);
 
+                if( !$cache_item->isHit() ) {
 
-                foreach ($teams as $team) {
-                    $params = array(
-                        "team" => $team
-                    );
-                    array_push($teams_render, $this->render('cards/pt_team_card.html.twig', $params)->getContent());
+                    $teams_render = array();
+                    $teams = $dbManager->getAllTeamsWithTypes($types);
+
+                    $teams_ids = array();
+
+                    foreach ($teams as $team) {
+                        $params = array(
+                            "team" => $team
+                        );
+                        array_push($teams_ids, 'team_' . $team['team_id']);
+                        array_push($teams_render, $this->render('cards/pt_team_card.html.twig', $params)->getContent());
+                    }
+
+                    $result["code"] = 0;
+                    $result["teams"] = $teams_render;
+
+                    $cache_item->set($result);
+                    $cache_item->tag($types);
+                    $cache_item->tag($teams_ids);
+
+                    $cacheManager->getCache()->save($cache_item);
                 }
-
-                $result["code"] = 0;
-                $result["teams"] = $teams_render;
-
-                return new JsonResponse($result);
+                return new JsonResponse($cache_item->get());
             }
             else {
                 $response = new Response();
